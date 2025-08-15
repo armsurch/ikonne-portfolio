@@ -1,5 +1,6 @@
 import React from 'react';
 import './About.css';
+import profileImage from '../assets/IK.jpg';
 
 const About = () => {
   return (
@@ -10,7 +11,7 @@ const About = () => {
           <div className="about-image">
             <div className="image-container">
               <div className="profile-image">
-                <img src="./src/assets/IK.jpg" alt="Ikonne Kingsley - Electrical Engineer" />
+                <img src={profileImage} alt="Ikonne Kingsley - Electrical Engineer" />
               </div>
               <div className="image-decoration">
                 <div className="decoration-circle circle-1"></div>
