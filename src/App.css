@@ -1,0 +1,142 @@
+.App {
+  min-height: 100vh;
+}
+
+/* Header Styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1rem 0;
+  box-shadow: 0 2px 20px var(--shadow);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo h2 {
+  color: var(--primary-color);
+  font-weight: 700;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-primary);
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary-color);
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: var(--text-primary);
+  margin: 3px 0;
+  transition: 0.3s;
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding-top: 80px;
+}
+
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+}
+
+.hero-description {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  opacity: 0.8;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Section Styles */
+section {
+  padding: 5rem 0;
+}
+
+.about, .education, .skills {
+  background-color: var(--surface);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background-color: white;
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px var(--shadow);
+    padding: 2rem 0;
+  }
+  
+  .nav-menu.active {
+    left: 0;
+  }
+  
+  .hero-title {
+    font-size: 2.5rem;
+  }
+}
