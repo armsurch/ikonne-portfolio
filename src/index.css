@@ -229,12 +229,53 @@ section {
   outline-offset: 2px;
 }
 
+/* Mobile Responsive Design */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 15px;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .section-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+  
+  section {
+    padding: 3rem 0;
+  }
+  
+  .btn {
+    padding: 12px 24px;
+    font-size: 0.9rem;
+    min-width: 140px;
+  }
+}
+
 @media (max-width: 768px) {
+  .container {
+    padding: 0 18px;
+  }
+  
   .section-title {
     font-size: 2.2rem;
   }
   
   .section-subtitle {
     font-size: 1rem;
+  }
+  
+  section {
+    padding: 4rem 0;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 0 20px;
   }
 }
