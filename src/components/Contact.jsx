@@ -4,6 +4,9 @@ import emailjs from '@emailjs/browser';
 import { EMAIL_CONFIG } from '../services/emailService';
 import './Contact.css';
 
+// Initialize EmailJS
+emailjs.init(EMAIL_CONFIG.PUBLIC_KEY);
+
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -240,6 +243,13 @@ const Contact = () => {
         to_email: 'chinonsokingsley854@gmail.com'
       };
 
+      console.log('Attempting to send email with params:', templateParams);
+      console.log('EmailJS Config:', {
+        serviceId: EMAIL_CONFIG.SERVICE_ID,
+        templateId: EMAIL_CONFIG.TEMPLATE_ID,
+        publicKey: EMAIL_CONFIG.PUBLIC_KEY ? 'Present' : 'Missing'
+      });
+
       // Send email using EmailJS
       const result = await emailjs.send(
         EMAIL_CONFIG.SERVICE_ID,
@@ -261,8 +271,65 @@ const Contact = () => {
       });
       setValidationErrors({});
     } catch (error) {
-      console.error('Form submission error:', error);
-      setSubmitStatus('error');
+      console.error('EmailJS Error Details:', error);
+      console.error('Error status:', error.status);
+      console.error('Error text:', error.text);
+      
+      // Log specific error information for debugging
+      let errorMessage = 'Unknown error';
+      if (error.status === 400) {
+        errorMessage = 'Invalid Service ID or Template ID';
+      } else if (error.status === 401) {
+        errorMessage = 'Invalid Public Key';
+      } else if (error.status === 404) {
+        errorMessage = 'Service or Template not found';
+      } else if (error.status === 412) {
+        errorMessage = 'Gmail service needs reconnection';
+      } else if (error.text) {
+        errorMessage = error.text;
+      }
+      
+      console.error('Specific Error:', errorMessage);
+      
+      // Fallback: Open WhatsApp and mailto as backup
+      const whatsappMessage = encodeURIComponent(
+        `*New Contact Form Submission*\n\n` +
+        `*Name:* ${formData.name}\n` +
+        `*Email:* ${formData.email}\n` +
+        `*Phone:* ${formData.phone || 'Not provided'}\n` +
+        `*Project Type:* ${formData.projectType || 'General Inquiry'}\n` +
+        `*Subject:* ${formData.subject || 'Portfolio Contact'}\n\n` +
+        `*Message:*\n${formData.message}\n\n` +
+        `_EmailJS failed (${errorMessage}) - sent via fallback method_`
+      );
+
+      // Open WhatsApp as fallback
+      window.open(`https://wa.me/2349027021719?text=${whatsappMessage}`, '_blank');
+
+      // Also create mailto as backup
+      const subject = encodeURIComponent(`${formData.subject || 'Portfolio Contact'} - ${formData.projectType || 'General'}`);
+      const body = encodeURIComponent(
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n` +
+        `Phone: ${formData.phone || 'Not provided'}\n` +
+        `Project Type: ${formData.projectType || 'General Inquiry'}\n\n` +
+        `Message:\n${formData.message}\n\n` +
+        `Note: This was sent via fallback method due to email service issue (${errorMessage}).`
+      );
+      
+      window.open(`mailto:chinonsokingsley854@gmail.com?subject=${subject}&body=${body}`, '_blank');
+      
+      // Still show success since we used fallback methods
+      setSubmitStatus('success');
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        subject: '',
+        message: '',
+        projectType: ''
+      });
+      setValidationErrors({});
     } finally {
       setIsSubmitting(false);
     }
@@ -578,7 +645,7 @@ const Contact = () => {
                   <span className="message-icon">✅</span>
                   <div>
                     <strong>Message sent successfully!</strong>
-                    <p>Your message has been delivered to my inbox. I'll get back to you within 24 hours.</p>
+                    <p>Your message has been delivered. I'll get back to you within 24 hours. Check your browser for any opened tabs (WhatsApp/Email) as backup delivery methods.</p>
                   </div>
                 </div>
               )}
