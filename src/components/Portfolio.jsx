@@ -53,7 +53,7 @@ const Portfolio = () => {
       category: "installation",
       description: "Led the installation of 500+ prepaid electricity meters across residential and commercial properties, improving billing accuracy.",
       technologies: ["Smart Meters", "Communication Systems", "Database Management"],
-      image: k3Image,
+      image: k6Image,
       githubUrl: null,
       liveUrl: null,
       duration: "6 months",
@@ -92,7 +92,7 @@ const Portfolio = () => {
       category: "system",
       description: "Conducted power quality analysis and implemented solutions to reduce harmonic distortion and improve power factor.",
       technologies: ["Power Quality Analyzers", "Harmonic Filters", "Power Factor Correction"],
-      image: k6Image,
+      image: k3Image,
       githubUrl: null,
       liveUrl: null,
       duration: "3 months",
@@ -108,7 +108,7 @@ const Portfolio = () => {
   return (
     <section id="portfolio" className="portfolio">
       <div className="container">
-        <h2 className="section-title">My Portfolio</h2>
+        <h2 className="section-title">My Projects</h2>
         <p className="section-subtitle">
           Explore my recent projects and engineering solutions
         </p>
