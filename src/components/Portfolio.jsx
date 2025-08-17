@@ -64,15 +64,15 @@ const Portfolio = () => {
 
     {
       id: 5,
-      title: "Electrical Maintenance & Solar Systems Program",
+      title: "Electrical Maintenance Program",
       category: "system",
-      description: "Developed and implemented a comprehensive maintenance program for electrical systems and solar installations, including preventive maintenance that reduced downtime by 40% and solar power system design with battery storage capabilities.",
-      technologies: ["Maintenance Management", "Testing Equipment", "Documentation Systems", "Solar Panels", "Battery Storage", "Inverters"],
+      description: "Developed and implemented a preventive maintenance program for electrical systems, reducing downtime by 40% and improving overall system reliability.",
+      technologies: ["Maintenance Management", "Testing Equipment", "Documentation Systems"],
       images: [k1Image, k5Image, k4Image],
       githubUrl: null,
       liveUrl: null,
       duration: "Ongoing",
-      client: "Industrial Facility & Commercial Buildings",
+      client: "Industrial Facility",
       status: "Active"
     },
     {
