@@ -6,7 +6,8 @@ A modern, responsive portfolio website built with React and Vite, showcasing pro
 
 - **Responsive Design**: Optimized for all devices and screen sizes
 - **Modern UI/UX**: Clean, professional design with smooth animations
-- **Interactive Components**: Dynamic testimonials carousel, skill progress bars
+- **Interactive Components**: Dynamic testimonials carousel, skill progress bars, project image carousel
+- **Portfolio Showcase**: Interactive project gallery with multi-image carousel support
 - **Dark/Light Mode**: Theme switching capability
 - **Performance Optimized**: Built with Vite for fast loading times
 - **SEO Friendly**: Proper meta tags and semantic HTML structure
@@ -28,6 +29,7 @@ A modern, responsive portfolio website built with React and Vite, showcasing pro
 - **Experience** - Professional work history
 - **Education** - Academic background
 - **Skills** - Technical skills with proficiency levels
+- **Portfolio** - Project showcase with image carousel
 - **Testimonials** - Client feedback and reviews
 - **Contact** - Contact information and form
 - **Footer** - Additional links and information
@@ -43,8 +45,8 @@ A modern, responsive portfolio website built with React and Vite, showcasing pro
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/ikonne-portfolio.git
-cd ikonne-portfolio
+git clone https://github.com/ikonne-kingsley/ikonne-portfolio.git
+cd ikonne-portfolio/Front
 ```
 
 2. Install dependencies:
@@ -84,15 +86,48 @@ src/
 │   ├── Experience.jsx
 │   ├── Education.jsx
 │   ├── Skills.jsx
+│   ├── Portfolio.jsx    # Project showcase with carousel
 │   ├── Testimonials.jsx
 │   ├── Contact.jsx
 │   ├── Footer.jsx
 │   └── ScrollToTop.jsx
+├── assets/             # Images and static files
+│   ├── IK.jpg
+│   ├── k1.jpg
+│   ├── k2.jpg
+│   ├── k3.jpg
+│   ├── k4.jpg
+│   ├── k5.jpg
+│   ├── K6.jpg
+│   └── K9.jpg
 ├── App.jsx             # Main App component
 ├── main.jsx           # Entry point
 ├── index.css          # Global styles
 └── App.css           # App-specific styles
 ```
+
+## 🖼️ Portfolio Features
+
+### Image Carousel
+- **Multi-image Support**: Projects can display multiple images in a rotating carousel
+- **Auto-rotation**: Images automatically change every 3 seconds
+- **Manual Navigation**: Click arrows or indicator dots to navigate manually
+- **Responsive Design**: Carousel adapts to all screen sizes
+- **Smooth Transitions**: Professional animations between images
+
+### Project Categories
+- **Circuit Design**: Electrical circuit and system design projects
+- **System Analysis**: Power system analysis and optimization projects
+- **All Projects**: View all projects regardless of category
+
+### Project Information
+Each project displays:
+- Title and category
+- Detailed description
+- Technologies used
+- Project duration and client information
+- GitHub and live demo links (when available)
+- Project status (Active, Completed, etc.)
 
 ## 🎨 Customization
 
@@ -116,7 +151,9 @@ Update the content in each component file to reflect your personal information:
 - **Personal Info**: Update in `Hero.jsx`, `About.jsx`
 - **Experience**: Modify the experience array in `Experience.jsx`
 - **Skills**: Update skills data in `Skills.jsx`
+- **Portfolio**: Update projects array in `Portfolio.jsx` with your own projects
 - **Testimonials**: Replace with your actual client testimonials in `Testimonials.jsx`
+- **Images**: Replace images in `src/assets/` with your own project images
 
 ## 📱 Responsive Design
 
@@ -140,10 +177,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 👤 Author
 
 **Ikonne Kingsley Chinonso**
-- Portfolio: [Your Portfolio URL]
+- Portfolio: [Live Portfolio URL - Update when deployed]
 - LinkedIn: [Your LinkedIn Profile]
-- GitHub: [Your GitHub Profile]
-- Email: [Your Email]
+- GitHub: [@ikonne-kingsley](https://github.com/ikonne-kingsley)
+- Email: [Your Email Address]
 
 ## 🤝 Contributing
 

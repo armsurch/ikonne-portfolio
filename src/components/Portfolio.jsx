@@ -61,30 +61,18 @@ const Portfolio = () => {
       client: "Electricity Distribution Company",
       status: "Completed"
     },
-    {
-      id: 4,
-      title: "Solar Power System Design",
-      category: "circuit",
-      description: "Designed a 50kW solar power system for a commercial building, including battery storage and grid-tie capabilities.",
-      technologies: ["Solar Panels", "Battery Storage", "Inverters", "Grid-Tie Systems"],
-      image: k4Image,
-      githubUrl: null,
-      liveUrl: null,
-      duration: "4 months",
-      client: "Commercial Building",
-      status: "Completed"
-    },
+
     {
       id: 5,
-      title: "Electrical Maintenance Program",
+      title: "Electrical Maintenance & Solar Systems Program",
       category: "system",
-      description: "Developed and implemented a preventive maintenance program for electrical systems, reducing downtime by 40%.",
-      technologies: ["Maintenance Management", "Testing Equipment", "Documentation Systems"],
-      images: [k1Image, k5Image],
+      description: "Developed and implemented a comprehensive maintenance program for electrical systems and solar installations, including preventive maintenance that reduced downtime by 40% and solar power system design with battery storage capabilities.",
+      technologies: ["Maintenance Management", "Testing Equipment", "Documentation Systems", "Solar Panels", "Battery Storage", "Inverters"],
+      images: [k1Image, k5Image, k4Image],
       githubUrl: null,
       liveUrl: null,
       duration: "Ongoing",
-      client: "Industrial Facility",
+      client: "Industrial Facility & Commercial Buildings",
       status: "Active"
     },
     {
