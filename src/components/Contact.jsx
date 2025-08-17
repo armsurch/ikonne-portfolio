@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp, FaLinkedin, FaGithub } from 'react-icons/fa';
+import emailjs from '@emailjs/browser';
+import { EMAIL_CONFIG } from '../services/emailService';
 import './Contact.css';
 
 const Contact = () => {
@@ -214,21 +216,39 @@ const Contact = () => {
     setIsSubmitting(true);
     setSubmitStatus('');
 
+    // Validate required fields
+    const errors = {};
+    if (!formData.name) errors.name = 'Name is required';
+    if (!formData.email) errors.email = 'Email is required';
+    if (!formData.message) errors.message = 'Message is required';
+
+    if (Object.keys(errors).length > 0) {
+      setValidationErrors(errors);
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      // Simulate form submission (replace with actual API call)
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      // For now, we'll create a mailto link with the form data
-      const subject = encodeURIComponent(`${formData.subject} - ${formData.projectType}`);
-      const body = encodeURIComponent(
-        `Name: ${formData.name}\n` +
-        `Email: ${formData.email}\n` +
-        `Phone: ${formData.phone}\n` +
-        `Project Type: ${formData.projectType}\n\n` +
-        `Message:\n${formData.message}`
+      // EmailJS configuration using your actual credentials
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone || 'Not provided',
+        subject: formData.subject || 'Portfolio Contact',
+        project_type: formData.projectType || 'General Inquiry',
+        message: formData.message,
+        to_email: 'chinonsokingsley854@gmail.com'
+      };
+
+      // Send email using EmailJS
+      const result = await emailjs.send(
+        EMAIL_CONFIG.SERVICE_ID,
+        EMAIL_CONFIG.TEMPLATE_ID,
+        templateParams,
+        EMAIL_CONFIG.PUBLIC_KEY
       );
-      
-      window.location.href = `mailto:chinonsokingsley854@gmail.com?subject=${subject}&body=${body}`;
+
+      console.log('Email sent successfully:', result);
       
       setSubmitStatus('success');
       setFormData({
@@ -239,7 +259,9 @@ const Contact = () => {
         message: '',
         projectType: ''
       });
+      setValidationErrors({});
     } catch (error) {
+      console.error('Form submission error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -554,7 +576,10 @@ const Contact = () => {
               {submitStatus === 'success' && (
                 <div className="form-message success">
                   <span className="message-icon">✅</span>
-                  Message sent successfully! I'll get back to you soon.
+                  <div>
+                    <strong>Message sent successfully!</strong>
+                    <p>Your message has been delivered to my inbox. I'll get back to you within 24 hours.</p>
+                  </div>
                 </div>
               )}
 
