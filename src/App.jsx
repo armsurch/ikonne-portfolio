@@ -10,6 +10,8 @@ import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ScrollToTop from './components/ScrollToTop';
+import AIAssistant from './components/AIAssistant';
+import SmartRecommendations from './components/SmartRecommendations';
 import './App.css';
 
 function App() {
@@ -26,6 +28,8 @@ function App() {
       <Contact />
       <Footer />
       <ScrollToTop />
+      <AIAssistant />
+      <SmartRecommendations />
     </div>
   );
 }

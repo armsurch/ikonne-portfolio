@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { FaGithub, FaExternalLinkAlt, FaCode, FaTools, FaLightbulb, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+import SmartPortfolio from './SmartPortfolio';
 import './Portfolio.css';
 
 // Import images
@@ -159,6 +160,9 @@ const Portfolio = () => {
         <p className="section-subtitle">
           Explore my recent projects and engineering solutions
         </p>
+
+        {/* Smart Portfolio Enhancements */}
+        <SmartPortfolio />
 
         {/* Category Filter */}
         <div className="portfolio-filters">

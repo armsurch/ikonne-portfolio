@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp, FaLinkedin, FaGithub } from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import { EMAIL_CONFIG } from '../services/emailService';
+import SmartContactHelper from './SmartContactHelper';
 import './Contact.css';
 
 // Initialize EmailJS
@@ -196,6 +197,13 @@ const Contact = () => {
     setSuggestions(prev => ({
       ...prev,
       [fieldName]: ''
+    }));
+  };
+
+  const handleSuggestionApply = (field, value) => {
+    setFormData(prev => ({
+      ...prev,
+      [field]: value
     }));
   };
 
@@ -605,6 +613,12 @@ const Contact = () => {
                     {suggestions.message}
                   </div>
                 )}
+                
+                {/* Smart Contact Helper */}
+                <SmartContactHelper 
+                  formData={formData}
+                  onSuggestionApply={handleSuggestionApply}
+                />
               </div>
 
               <div className="form-buttons">
