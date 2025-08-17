@@ -1,0 +1,30 @@
+/* Electrical Background Styles */
+.electrical-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background: radial-gradient(ellipse at center, #0a0a0a 0%, #000000 100%);
+  opacity: 0.6;
+  pointer-events: auto;
+  cursor: crosshair;
+}
+
+/* Ensure it doesn't interfere with other elements */
+.electrical-background:hover {
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .electrical-background {
+    opacity: 0.4;
+  }
+  
+  .electrical-background:hover {
+    opacity: 0.6;
+  }
+}

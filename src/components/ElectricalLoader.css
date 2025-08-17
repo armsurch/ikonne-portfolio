@@ -1,0 +1,601 @@
+/* Electrical Loader Styles */
+
+.electrical-loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  overflow: hidden;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.electrical-loader.fade-out {
+  opacity: 0;
+  visibility: hidden;
+}
+
+/* Background Effects */
+.loader-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.circuit-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.circuit-line {
+  position: absolute;
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 255, 0.3), transparent);
+  animation: circuitFlow 4s ease-in-out infinite;
+}
+
+.circuit-line-0 {
+  top: 20%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  animation-delay: 0s;
+}
+
+.circuit-line-1 {
+  top: 40%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  animation-delay: 1s;
+}
+
+.circuit-line-2 {
+  top: 60%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  animation-delay: 2s;
+}
+
+.circuit-line-3 {
+  top: 80%;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  animation-delay: 3s;
+}
+
+@keyframes circuitFlow {
+  0%, 100% {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  50% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.electrical-sparks {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.spark {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: #00ffff;
+  border-radius: 50%;
+  animation: sparkFloat 3s ease-in-out infinite;
+}
+
+.spark-0 { top: 15%; left: 10%; animation-delay: 0s; }
+.spark-1 { top: 25%; right: 15%; animation-delay: 0.5s; }
+.spark-2 { top: 45%; left: 20%; animation-delay: 1s; }
+.spark-3 { top: 65%; right: 25%; animation-delay: 1.5s; }
+.spark-4 { top: 75%; left: 30%; animation-delay: 2s; }
+.spark-5 { top: 35%; right: 35%; animation-delay: 2.5s; }
+.spark-6 { top: 55%; left: 40%; animation-delay: 3s; }
+.spark-7 { top: 85%; right: 45%; animation-delay: 3.5s; }
+
+@keyframes sparkFloat {
+  0%, 100% {
+    opacity: 0;
+    transform: scale(0);
+    box-shadow: 0 0 0 #00ffff;
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow: 0 0 20px #00ffff;
+  }
+}
+
+/* Main Content */
+.loader-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+  z-index: 2;
+  text-align: center;
+}
+
+/* Logo Section */
+.loader-logo {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.main-logo-icon {
+  font-size: 4rem;
+  color: #00ffff;
+  animation: logoElectricalPulse 2s ease-in-out infinite;
+  filter: drop-shadow(0 0 20px #00ffff);
+}
+
+@keyframes logoElectricalPulse {
+  0%, 100% {
+    transform: scale(1) rotate(0deg);
+    filter: drop-shadow(0 0 20px #00ffff);
+  }
+  25% {
+    transform: scale(1.1) rotate(-5deg);
+    filter: drop-shadow(0 0 30px #00ffff);
+  }
+  75% {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(0 0 30px #00ffff);
+  }
+}
+
+.logo-text h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: white;
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  animation: textGlow 3s ease-in-out infinite;
+}
+
+.logo-text p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin: 5px 0 0 0;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  }
+  50% {
+    text-shadow: 0 0 30px rgba(255, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.3);
+  }
+}
+
+.logo-electrical-effect {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.electrical-ring {
+  position: absolute;
+  border: 2px solid #00ffff;
+  border-radius: 50%;
+  animation: electricalRingRotate 4s linear infinite;
+}
+
+.ring-1 {
+  width: 120px;
+  height: 120px;
+  top: -60px;
+  left: -60px;
+  animation-delay: 0s;
+  opacity: 0.6;
+}
+
+.ring-2 {
+  width: 160px;
+  height: 160px;
+  top: -80px;
+  left: -80px;
+  animation-delay: 1s;
+  opacity: 0.4;
+}
+
+.ring-3 {
+  width: 200px;
+  height: 200px;
+  top: -100px;
+  left: -100px;
+  animation-delay: 2s;
+  opacity: 0.2;
+}
+
+@keyframes electricalRingRotate {
+  0% {
+    transform: rotate(0deg) scale(1);
+    border-color: #00ffff;
+  }
+  25% {
+    transform: rotate(90deg) scale(1.1);
+    border-color: #0080ff;
+  }
+  50% {
+    transform: rotate(180deg) scale(1);
+    border-color: #00ffff;
+  }
+  75% {
+    transform: rotate(270deg) scale(1.1);
+    border-color: #0080ff;
+  }
+  100% {
+    transform: rotate(360deg) scale(1);
+    border-color: #00ffff;
+  }
+}
+
+/* Loading Stage */
+.loading-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.stage-icon-container {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 255, 255, 0.1);
+  border: 2px solid #00ffff;
+  border-radius: 50%;
+  position: relative;
+}
+
+.stage-icon {
+  font-size: 1.8rem;
+  color: #00ffff;
+}
+
+.stage-icon.rotating {
+  animation: iconRotate 2s linear infinite;
+}
+
+.stage-icon.pulsing {
+  animation: iconPulse 1.5s ease-in-out infinite;
+}
+
+.stage-icon.sparking {
+  animation: iconSpark 1s ease-in-out infinite;
+}
+
+.stage-icon.oscillating {
+  animation: iconOscillate 1s ease-in-out infinite;
+}
+
+.stage-icon.glowing {
+  animation: iconGlow 1.5s ease-in-out infinite;
+}
+
+.stage-icon.success {
+  animation: iconSuccess 0.5s ease-in-out;
+  color: #00ff00;
+}
+
+@keyframes iconRotate {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes iconPulse {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.2); opacity: 0.7; }
+}
+
+@keyframes iconSpark {
+  0%, 100% { 
+    transform: scale(1); 
+    filter: drop-shadow(0 0 10px #00ffff);
+  }
+  50% { 
+    transform: scale(1.3); 
+    filter: drop-shadow(0 0 20px #00ffff);
+  }
+}
+
+@keyframes iconOscillate {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  75% { transform: translateX(5px); }
+}
+
+@keyframes iconGlow {
+  0%, 100% { 
+    filter: drop-shadow(0 0 10px #00ffff);
+    transform: scale(1);
+  }
+  50% { 
+    filter: drop-shadow(0 0 25px #00ffff);
+    transform: scale(1.1);
+  }
+}
+
+@keyframes iconSuccess {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+.stage-text {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-family: 'Courier New', monospace;
+}
+
+/* Progress Bar */
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 300px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00ffff, #0080ff, #00ffff);
+  border-radius: 4px;
+  position: relative;
+  transition: width 0.3s ease;
+  animation: progressGlow 2s ease-in-out infinite;
+}
+
+@keyframes progressGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px #00ffff;
+  }
+  50% {
+    box-shadow: 0 0 20px #00ffff, 0 0 30px #0080ff;
+  }
+}
+
+.progress-spark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: white;
+  border-radius: 2px;
+  animation: sparkMove 1s ease-in-out infinite;
+}
+
+@keyframes sparkMove {
+  0%, 100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translateX(2px);
+  }
+}
+
+.progress-text {
+  font-size: 1rem;
+  color: #00ffff;
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}
+
+/* System Status */
+.system-status {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.status-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.5);
+  transition: all 0.3s ease;
+}
+
+.status-item.active {
+  color: #00ffff;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.status-item.active .status-dot {
+  background: #00ffff;
+  box-shadow: 0 0 10px #00ffff;
+  animation: statusDotPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes statusDotPulse {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.8;
+  }
+}
+
+/* Loading Particles */
+.loading-particles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: #00ffff;
+  border-radius: 50%;
+  animation: particleFloat 4s ease-in-out infinite;
+}
+
+.particle-0 { top: 10%; left: 5%; animation-delay: 0s; }
+.particle-1 { top: 20%; right: 10%; animation-delay: 0.3s; }
+.particle-2 { top: 30%; left: 15%; animation-delay: 0.6s; }
+.particle-3 { top: 40%; right: 20%; animation-delay: 0.9s; }
+.particle-4 { top: 50%; left: 25%; animation-delay: 1.2s; }
+.particle-5 { top: 60%; right: 30%; animation-delay: 1.5s; }
+.particle-6 { top: 70%; left: 35%; animation-delay: 1.8s; }
+.particle-7 { top: 80%; right: 40%; animation-delay: 2.1s; }
+.particle-8 { top: 90%; left: 45%; animation-delay: 2.4s; }
+.particle-9 { top: 15%; right: 50%; animation-delay: 2.7s; }
+.particle-10 { top: 35%; left: 55%; animation-delay: 3s; }
+.particle-11 { top: 55%; right: 60%; animation-delay: 3.3s; }
+.particle-12 { top: 75%; left: 65%; animation-delay: 3.6s; }
+.particle-13 { top: 25%; right: 70%; animation-delay: 3.9s; }
+.particle-14 { top: 45%; left: 75%; animation-delay: 4.2s; }
+
+@keyframes particleFloat {
+  0%, 100% {
+    opacity: 0;
+    transform: translateY(0) scale(0);
+  }
+  25% {
+    opacity: 1;
+    transform: translateY(-20px) scale(1);
+  }
+  75% {
+    opacity: 1;
+    transform: translateY(-40px) scale(1);
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .loader-content {
+    gap: 30px;
+    padding: 20px;
+  }
+  
+  .logo-container {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .main-logo-icon {
+    font-size: 3rem;
+  }
+  
+  .logo-text h1 {
+    font-size: 2rem;
+  }
+  
+  .logo-text p {
+    font-size: 1rem;
+  }
+  
+  .progress-container {
+    width: 250px;
+  }
+  
+  .electrical-ring {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .loader-content {
+    gap: 25px;
+    padding: 15px;
+  }
+  
+  .main-logo-icon {
+    font-size: 2.5rem;
+  }
+  
+  .logo-text h1 {
+    font-size: 1.8rem;
+  }
+  
+  .logo-text p {
+    font-size: 0.9rem;
+  }
+  
+  .progress-container {
+    width: 200px;
+  }
+  
+  .stage-icon-container {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .stage-icon {
+    font-size: 1.5rem;
+  }
+  
+  .stage-text {
+    font-size: 1rem;
+  }
+}

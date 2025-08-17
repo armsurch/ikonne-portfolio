@@ -1,5 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import { FaEnvelope, FaPhone, FaMapMarkerAlt, FaWhatsapp, FaLinkedin, FaGithub } from 'react-icons/fa';
+import { 
+  FaEnvelope, 
+  FaPhone, 
+  FaMapMarkerAlt, 
+  FaWhatsapp, 
+  FaLinkedin, 
+  FaGithub,
+  FaTwitter,
+  FaInstagram,
+  FaFacebook,
+  FaTelegram,
+  FaYoutube,
+  FaDiscord
+} from 'react-icons/fa';
 import emailjs from '@emailjs/browser';
 import { EMAIL_CONFIG } from '../services/emailService';
 import SmartContactHelper from './SmartContactHelper';
@@ -410,16 +423,146 @@ const Contact = () => {
             </div>
 
             <div className="social-links">
-              <h4>Follow Me</h4>
-              <div className="social-icons">
-                <a href="https://linkedin.com/in/ikonne-kingsley" target="_blank" rel="noopener noreferrer" className="social-link linkedin">
-                  <FaLinkedin />
-                </a>
-                <a href="https://github.com/ikonne-kingsley" target="_blank" rel="noopener noreferrer" className="social-link github">
-                  <FaGithub />
-                </a>
-                <a href="https://wa.me/2349027021719" target="_blank" rel="noopener noreferrer" className="social-link whatsapp">
+              <h4>Connect & Follow</h4>
+              <p className="social-subtitle">Let's stay connected across platforms</p>
+              
+              <div className="social-categories">
+                {/* Professional Networks */}
+                <div className="social-category">
+                  <h5>Professional</h5>
+                  <div className="social-icons">
+                    <a 
+                      href="https://linkedin.com/in/ikonne-kingsley" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="social-link linkedin"
+                      title="Connect on LinkedIn"
+                    >
+                      <FaLinkedin />
+                      <span>LinkedIn</span>
+                    </a>
+                    <a 
+                      href="https://github.com/ikonne-kingsley" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="social-link github"
+                      title="View GitHub Projects"
+                    >
+                      <FaGithub />
+                      <span>GitHub</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Communication */}
+                <div className="social-category">
+                  <h5>Quick Chat</h5>
+                  <div className="social-icons">
+                    <a 
+                      href="https://wa.me/2349027021719" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="social-link whatsapp"
+                      title="Chat on WhatsApp"
+                    >
+                      <FaWhatsapp />
+                      <span>WhatsApp</span>
+                    </a>
+                    <a 
+                      href="https://t.me/ikonnekingsley" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="social-link telegram"
+                      title="Message on Telegram"
+                    >
+                      <FaTelegram />
+                      <span>Telegram</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Social Media */}
+                <div className="social-category">
+                  <h5>Social Media</h5>
+                  <div className="social-icons">
+                    <a 
+                      href="https://twitter.com/ikonne_kingsley" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="social-link twitter"
+                      title="Follow on Twitter"
+                    >
+                      <FaTwitter />
+                      <span>Twitter</span>
+                    </a>
+                    <a 
+                      href="https://instagram.com/ikonne.kingsley" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="social-link instagram"
+                      title="Follow on Instagram"
+                    >
+                      <FaInstagram />
+                      <span>Instagram</span>
+                    </a>
+                    <a 
+                      href="https://facebook.com/ikonne.kingsley" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="social-link facebook"
+                      title="Connect on Facebook"
+                    >
+                      <FaFacebook />
+                      <span>Facebook</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Content & Community */}
+                <div className="social-category">
+                  <h5>Content & Community</h5>
+                  <div className="social-icons">
+                    <a 
+                      href="https://youtube.com/@ikonnekingsley" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="social-link youtube"
+                      title="Subscribe to YouTube Channel"
+                    >
+                      <FaYoutube />
+                      <span>YouTube</span>
+                    </a>
+                    <a 
+                      href="https://discord.gg/ikonnekingsley" 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="social-link discord"
+                      title="Join Discord Community"
+                    >
+                      <FaDiscord />
+                      <span>Discord</span>
+                    </a>
+                  </div>
+                </div>
+              </div>
+
+              {/* Quick Action Buttons */}
+              <div className="social-quick-actions">
+                <button 
+                  onClick={handleWhatsAppContact}
+                  className="quick-action-btn whatsapp"
+                >
                   <FaWhatsapp />
+                  Quick WhatsApp
+                </button>
+                <a 
+                  href="https://linkedin.com/in/ikonne-kingsley" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="quick-action-btn linkedin"
+                >
+                  <FaLinkedin />
+                  Connect on LinkedIn
                 </a>
               </div>
             </div>

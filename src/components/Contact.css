@@ -643,7 +643,21 @@
   
   .social-links h4 {
     font-size: 0.9rem;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .social-subtitle {
+    font-size: 0.8rem;
+    margin-bottom: 1rem;
+  }
+  
+  .social-categories {
+    gap: 1rem;
+  }
+  
+  .social-category h5 {
+    font-size: 0.75rem;
+    margin-bottom: 0.5rem;
   }
   
   .social-icons {
@@ -652,10 +666,23 @@
   }
   
   .social-link {
-    width: 35px;
-    height: 35px;
-    font-size: 0.9rem;
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
     border-radius: 8px;
+  }
+  
+  .social-link span {
+    font-size: 0.75rem;
+  }
+  
+  .social-quick-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .quick-action-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
   }
 }
 
@@ -903,7 +930,7 @@
 }
 
 .social-links {
-  text-align: center;
+  text-align: left;
   padding-top: 1.5rem;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
@@ -911,45 +938,154 @@
 .social-links h4 {
   color: white;
   font-weight: 600;
-  margin-bottom: 1rem;
-  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.social-subtitle {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.social-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.social-category h5 {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .social-icons {
   display: flex;
-  justify-content: center;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: 0.75rem;
 }
 
 .social-link {
-  width: 45px;
-  height: 45px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
   color: white;
   text-decoration: none;
-  font-size: 1.1rem;
+  font-size: 0.9rem;
+  font-weight: 500;
   transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .social-link:hover {
-  transform: translateY(-3px);
+  transform: translateY(-2px);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.15);
 }
 
+.social-link span {
+  font-size: 0.85rem;
+}
+
+/* Platform-specific hover colors */
 .social-link.linkedin:hover {
   background: #0077B5;
+  border-color: #0077B5;
 }
 
 .social-link.github:hover {
   background: #333;
+  border-color: #333;
 }
 
 .social-link.whatsapp:hover {
   background: #25D366;
+  border-color: #25D366;
+}
+
+.social-link.telegram:hover {
+  background: #0088cc;
+  border-color: #0088cc;
+}
+
+.social-link.twitter:hover {
+  background: #1DA1F2;
+  border-color: #1DA1F2;
+}
+
+.social-link.instagram:hover {
+  background: linear-gradient(45deg, #f09433 0%,#e6683c 25%,#dc2743 50%,#cc2366 75%,#bc1888 100%);
+  border-color: #e6683c;
+}
+
+.social-link.facebook:hover {
+  background: #1877F2;
+  border-color: #1877F2;
+}
+
+.social-link.youtube:hover {
+  background: #FF0000;
+  border-color: #FF0000;
+}
+
+.social-link.discord:hover {
+  background: #5865F2;
+  border-color: #5865F2;
+}
+
+/* Quick Action Buttons */
+.social-quick-actions {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.quick-action-btn {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  border: none;
+  cursor: pointer;
+}
+
+.quick-action-btn.whatsapp {
+  background: #25D366;
+  color: white;
+}
+
+.quick-action-btn.whatsapp:hover {
+  background: #128C7E;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+}
+
+.quick-action-btn.linkedin {
+  background: #0077B5;
+  color: white;
+}
+
+.quick-action-btn.linkedin:hover {
+  background: #005885;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 119, 181, 0.4);
 }
 
 /* Form Button Styles */
@@ -1014,4 +1150,71 @@
   font-size: 0.9rem;
   position: relative;
   z-index: 1;
+}
+
+/* Additional Mobile Responsive Styles for Social Media */
+@media (max-width: 768px) {
+  .social-categories {
+    gap: 1.2rem;
+  }
+  
+  .social-category h5 {
+    font-size: 0.8rem;
+    text-align: center;
+  }
+  
+  .social-icons {
+    justify-content: center;
+    gap: 0.6rem;
+  }
+  
+  .social-link {
+    padding: 0.5rem 0.7rem;
+    font-size: 0.85rem;
+  }
+  
+  .social-link span {
+    display: none; /* Hide text on mobile, show only icons */
+  }
+  
+  .quick-action-btn {
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .social-links {
+    text-align: center;
+  }
+  
+  .social-categories {
+    gap: 1rem;
+  }
+  
+  .social-category h5 {
+    font-size: 0.75rem;
+    margin-bottom: 0.6rem;
+  }
+  
+  .social-icons {
+    gap: 0.5rem;
+  }
+  
+  .social-link {
+    padding: 0.4rem 0.6rem;
+    font-size: 0.8rem;
+    min-width: 40px;
+    justify-content: center;
+  }
+  
+  .social-quick-actions {
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  
+  .quick-action-btn {
+    padding: 0.6rem 0.8rem;
+    font-size: 0.8rem;
+  }
 }
