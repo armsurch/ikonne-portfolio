@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { FaGithub, FaExternalLinkAlt, FaCode, FaTools, FaLightbulb } from 'react-icons/fa';
+import React, { useState, useEffect } from 'react';
+import { FaGithub, FaExternalLinkAlt, FaCode, FaTools, FaLightbulb, FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import './Portfolio.css';
 
 // Import images
@@ -9,6 +9,7 @@ import k3Image from '../assets/k3.jpg';
 import k4Image from '../assets/k4.jpg';
 import k5Image from '../assets/k5.jpg';
 import k6Image from '../assets/K6.jpg';
+import k9Image from '../assets/K9.jpg';
 
 const Portfolio = () => {
   const [activeCategory, setActiveCategory] = useState('all');
@@ -27,7 +28,7 @@ const Portfolio = () => {
       category: "circuit",
       description: "Designed and implemented a comprehensive smart home automation system with IoT integration, featuring automated lighting, climate control, and security systems.",
       technologies: ["Arduino", "Raspberry Pi", "IoT Sensors", "Mobile App"],
-      image: k1Image,
+      image: k9Image,
       githubUrl: "https://github.com/ikonne-kingsley/smart-home",
       liveUrl: null,
       duration: "3 months",
@@ -79,7 +80,7 @@ const Portfolio = () => {
       category: "system",
       description: "Developed and implemented a preventive maintenance program for electrical systems, reducing downtime by 40%.",
       technologies: ["Maintenance Management", "Testing Equipment", "Documentation Systems"],
-      image: k5Image,
+      images: [k1Image, k5Image],
       githubUrl: null,
       liveUrl: null,
       duration: "Ongoing",
@@ -104,6 +105,64 @@ const Portfolio = () => {
   const filteredProjects = activeCategory === 'all' 
     ? projects 
     : projects.filter(project => project.category === activeCategory);
+
+  // Image Carousel Component
+  const ImageCarousel = ({ images, title }) => {
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+      if (images.length > 1) {
+        const interval = setInterval(() => {
+          setCurrentImageIndex((prevIndex) => 
+            prevIndex === images.length - 1 ? 0 : prevIndex + 1
+          );
+        }, 3000); // Change image every 3 seconds
+
+        return () => clearInterval(interval);
+      }
+    }, [images.length]);
+
+    const goToPrevious = () => {
+      setCurrentImageIndex(
+        currentImageIndex === 0 ? images.length - 1 : currentImageIndex - 1
+      );
+    };
+
+    const goToNext = () => {
+      setCurrentImageIndex(
+        currentImageIndex === images.length - 1 ? 0 : currentImageIndex + 1
+      );
+    };
+
+    if (images.length === 1) {
+      return <img src={images[0]} alt={title} />;
+    }
+
+    return (
+      <div className="image-carousel">
+        <img src={images[currentImageIndex]} alt={title} />
+        {images.length > 1 && (
+          <>
+            <button className="carousel-btn prev" onClick={goToPrevious}>
+              <FaChevronLeft />
+            </button>
+            <button className="carousel-btn next" onClick={goToNext}>
+              <FaChevronRight />
+            </button>
+            <div className="carousel-indicators">
+              {images.map((_, index) => (
+                <button
+                  key={index}
+                  className={`indicator ${index === currentImageIndex ? 'active' : ''}`}
+                  onClick={() => setCurrentImageIndex(index)}
+                />
+              ))}
+            </div>
+          </>
+        )}
+      </div>
+    );
+  };
 
   return (
     <section id="portfolio" className="portfolio">
@@ -139,7 +198,10 @@ const Portfolio = () => {
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               <div className="project-image">
-                <img src={project.image} alt={project.title} />
+                <ImageCarousel 
+                  images={project.images || [project.image]} 
+                  title={project.title} 
+                />
                 <div className="project-overlay">
                   <div className="project-actions">
                     {project.githubUrl && (
