@@ -469,7 +469,7 @@ const Contact = () => {
                       <span>WhatsApp</span>
                     </a>
                     <a 
-                      href="https://t.me/ikonnekingsley" 
+                      href="https://t.me/kingsikonne" 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="social-link telegram"
@@ -486,7 +486,7 @@ const Contact = () => {
                   <h5>Social Media</h5>
                   <div className="social-icons">
                     <a 
-                      href="https://twitter.com/ikonne_kingsley" 
+                      href="https://x.com/NonsoKings65?t=HF6hMUTtvtBswHuuaxnUzw&s=09" 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="social-link twitter"
@@ -496,7 +496,7 @@ const Contact = () => {
                       <span>Twitter</span>
                     </a>
                     <a 
-                      href="https://instagram.com/ikonne.kingsley" 
+                      href="https://www.instagram.com/chinonsoikonne?igsh=MWZpNXJwaTU3c2FjYQ==" 
                       target="_blank" 
                       rel="noopener noreferrer" 
                       className="social-link instagram"
@@ -556,7 +556,7 @@ const Contact = () => {
                   Quick WhatsApp
                 </button>
                 <a 
-                  href="https://linkedin.com/in/ikonne-kingsley" 
+                  href="https://www.linkedin.com/in/kingsley-ikonne-869657354?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="quick-action-btn linkedin"
