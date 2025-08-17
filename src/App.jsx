@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
 import Experience from './components/Experience';
@@ -23,17 +22,14 @@ function App() {
   const [showEnhancedNav, setShowEnhancedNav] = useState(false);
 
   useEffect(() => {
-    // Enable enhanced navigation after loading
     const timer = setTimeout(() => {
       setShowEnhancedNav(true);
     }, 100);
-
     return () => clearTimeout(timer);
   }, []);
 
   const handleLoadComplete = () => {
     setIsLoading(false);
-    // Add enhanced nav class to body
     document.body.classList.add('enhanced-nav-active');
   };
 
@@ -53,9 +49,6 @@ function App() {
       {/* Page Transitions */}
       {!isLoading && <PageTransitions />}
 
-      {/* Original Header (hidden when enhanced nav is active) */}
-      <Header />
-      
       {/* Main Content */}
       <Hero />
       <About />

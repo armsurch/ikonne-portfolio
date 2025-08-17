@@ -88,8 +88,8 @@ const Header = () => {
             </a>
           </li>
           <li className="nav-item">
-            <a href="#portfolio" className="nav-link" onClick={(e) => handleLinkClick(e, 'portfolio')}>
-              Portfolio
+            <a href="#Projects" className="nav-link" onClick={(e) => handleLinkClick(e, 'Projectsss')}>
+              Projects
             </a>
           </li>
           <li className="nav-item">
